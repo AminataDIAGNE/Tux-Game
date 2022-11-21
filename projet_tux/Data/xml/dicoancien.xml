@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<ns1:mots
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:ns1='http://univ-grenoble-alpes.fr/Dembele/mot'
+    xsi:schemaLocation='http://univ-grenoble-alpes.fr/Dembele/mot file:/home/d/dembeleo/NetBeansProjects/projet_tux/Data/xsd/dico.xsd'>
+    <ns1:mot1>mot = "oui"
+        <ns1:niveau>niveau= 1</ns1:niveau>
+    </ns1:mot1>
+    <ns1:mot2>mot = "non"
+        <ns1:niveau>niveau= 1</ns1:niveau>
+    </ns1:mot2>
+    <ns1:mot3>mot = "pas"
+        <ns1:niveau>niveau= 1</ns1:niveau>
+    </ns1:mot3>
+    <ns1:mot4>mot = "sur"
+        <ns1:niveau>niveau= 1</ns1:niveau>
+    </ns1:mot4>
+    <ns1:mot5>mot = "est"
+        <ns1:niveau>niveau= 1</ns1:niveau>
+    </ns1:mot5>
+    
+    <ns1:mot6>mot = "maman"
+        <ns1:niveau>niveau= 2</ns1:niveau>
+    </ns1:mot6>
+    <ns1:mot7>mot = "boire"
+        <ns1:niveau>niveau= 2</ns1:niveau>
+    </ns1:mot7>
+    <ns1:mot8>mot = "vomir"
+        <ns1:niveau>niveau= 2</ns1:niveau>
+    </ns1:mot8>
+    <ns1:mot9>mot = "fleur"
+        <ns1:niveau>niveau= 2</ns1:niveau>
+    </ns1:mot9>
+    <ns1:mot10>mot = "bougie"
+        <ns1:niveau>niveau= 2</ns1:niveau>
+    </ns1:mot10>
+    
+    <ns1:mot11>mot = "âge"
+        <ns1:niveau>niveau=3 </ns1:niveau>
+    </ns1:mot11>
+    <ns1:mot12>mot = "pêche"
+        <ns1:niveau>niveau=3 </ns1:niveau>
+    </ns1:mot12>
+    <ns1:mot13>mot = "prière"
+        <ns1:niveau>niveau=3 </ns1:niveau>
+    </ns1:mot13>
+    <ns1:mot14>mot = "flamme"
+        <ns1:niveau>niveau=3 </ns1:niveau>
+    </ns1:mot14>
+    <ns1:mot15>mot = "flûte"
+        <ns1:niveau>niveau=3 </ns1:niveau>
+    </ns1:mot15>
+    
+    <ns1:mot16>mot = "ascenseur"
+        <ns1:niveau>niveau=4 </ns1:niveau>
+    </ns1:mot16>
+    <ns1:mot17>mot = "bouilloire"
+        <ns1:niveau>niveau=4 </ns1:niveau>
+    </ns1:mot17>
+    <ns1:mot18>mot = "hôpital"
+        <ns1:niveau>niveau=4 </ns1:niveau>
+    </ns1:mot18>
+    <ns1:mot19>mot = "développement"
+        <ns1:niveau>niveau=4 </ns1:niveau>
+    </ns1:mot19>
+    <ns1:mot20>mot = "scène"
+        <ns1:niveau>niveau=4 </ns1:niveau>
+    </ns1:mot20>
+    
+    <ns1:mot25>mot = "hippopotame"
+        <ns1:niveau>niveau=5 </ns1:niveau>
+    </ns1:mot25>
+    <ns1:mot25>mot = "narcissique"
+        <ns1:niveau>niveau=5 </ns1:niveau>
+    </ns1:mot25>
+    <ns1:mot25>mot = "autoritaire"
+        <ns1:niveau>niveau=5 </ns1:niveau>
+    </ns1:mot25>
+    <ns1:mot25>mot = "xilophone"
+        <ns1:niveau>niveau=5 </ns1:niveau>
+    </ns1:mot25>
+    <ns1:mot25>mot = "aïeux"
+        <ns1:niveau>niveau=5 </ns1:niveau>
+    </ns1:mot25>
+    
+    
+    
+
+</ns1:mots>
+

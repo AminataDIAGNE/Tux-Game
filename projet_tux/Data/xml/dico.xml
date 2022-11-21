@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+<mots>
+    <mot1>mot = "oui"
+        <niveau>niveau= 1</niveau>
+    </mot1>
+    <mot2>mot = "non"
+        <niveau>niveau= 1</niveau>
+    </mot2>
+    <mot3>mot = "pas"
+        <niveau>niveau= 1</niveau>
+    </mot3>
+    <mot4>mot = "sur"
+        <niveau>niveau= 1</niveau>
+    </mot4>
+    <mot5>mot = "est"
+        <niveau>niveau= 1</niveau>
+    </mot5>
+    
+    <mot6>mot = "maman"
+        <niveau>niveau= 2</niveau>
+    </mot6>
+    <mot7>mot = "boire"
+        <niveau>niveau= 2</niveau>
+    </mot7>
+    <mot8>mot = "vomir"
+        <niveau>niveau= 2</niveau>
+    </mot8>
+    <mot9>mot = "fleur"
+        <niveau>niveau= 2</niveau>
+    </mot9>
+    <mot10>mot = "bougie"
+        <niveau>niveau= 2</niveau>
+    </mot10>
+    
+    <mot11>mot = "âge"
+        <niveau>niveau=3 </niveau>
+    </mot11>
+    <mot12>mot = "pêche"
+        <niveau>niveau=3 </niveau>
+    </mot12>
+    <mot13>mot = "prière"
+        <niveau>niveau=3 </niveau>
+    </mot13>
+    <mot14>mot = "flamme"
+        <niveau>niveau=3 </niveau>
+    </mot14>
+    <mot15>mot = "flûte"
+        <niveau>niveau=3 </niveau>
+    </mot15>
+    
+    <mot16>mot = "ascenseur"
+        <niveau>niveau=4 </niveau>
+    </mot16>
+    <mot17>mot = "bouilloire"
+        <niveau>niveau=4 </niveau>
+    </mot17>
+    <mot18>mot = "hôpital"
+        <niveau>niveau=4 </niveau>
+    </mot18>
+    <mot19>mot = "développement"
+        <niveau>niveau=4 </niveau>
+    </mot19>
+    <mot20>mot = "scène"
+        <niveau>niveau=4 </niveau>
+    </mot20>
+    
+    <mot25>mot = "hippopotame"
+        <niveau>niveau=5 </niveau>
+    </mot25>
+    <mot25>mot = "narcissique"
+        <niveau>niveau=5 </niveau>
+    </mot25>
+    <mot25>mot = "autoritaire"
+        <niveau>niveau=5 </niveau>
+    </mot25>
+    <mot25>mot = "xilophone"
+        <niveau>niveau=5 </niveau>
+    </mot25>
+    <mot25>mot = "aïeux"
+        <niveau>niveau=5 </niveau>
+    </mot25>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</mots>
+
+
+
+<root>
+    
+</root>
+
