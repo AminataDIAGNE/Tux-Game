@@ -1,2 +1,2 @@
 # Tux-Game
-Le principe du jeu sera de créer un jeu utilisant un environnement 3D, permettant l'apprentissage ludique de l'orthographe en cherchant les lettres d'un mot avec un personnage, tout cela dans un temps imparti.
+Le principe du jeu sera de créer un jeu utilisant un environnement 3D, permettant l'apprentissage ludique de l'orthographe en cherchant les lettres d'un mot avec un personnage, tout cela dans un temps imparti. Le jeu est configuré grâce à une page xhtml et toutes ces données sont stockées via des fichiers xml bien formés et valides ! A terme, le jeu se présentera sous la forme de 2 applications : une application serveur fournissant les mots d'un dictionnaire, et une application cliente, le jeu lui-même.
