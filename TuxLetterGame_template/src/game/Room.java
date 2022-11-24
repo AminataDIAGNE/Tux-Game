@@ -1,5 +1,9 @@
 
 package game;
+/**
+ *
+ * @author diagneam
+ */
 
 public class Room {
     private int depth;
@@ -13,17 +17,21 @@ public class Room {
     private String textureSouth;
     
     public Room(){
-    depth=100;
-    height=60;
-    width=100;
-    textureBottom="../../../textures/terrains/mud.png";
-    textureNorth="../../../textures/terrains/granite.png";
-    textureEast="../../../textures/terrains/fence1.png";
-    textureWest="../../../textures/terrains/fence0.png";
-    textureTop="";
-    textureSouth="";    
+        textureBottom ="textures/terrain/flat.png" ;
+        textureNorth ="textures/stone.png" ;
+        textureEast ="textures/stone.png" ;
+        textureWest ="textures/stone.png" ;
+        textureTop ="textures/stone.png" ;
+        //textureSouth ="textures/stone.png" ;
+        depth= 100;
+        height= 60;
+        width= 100;
+    
     }
-    public int getDepth() {
+    
+   
+
+     public int getDepth() {
         return depth;
     }
 
@@ -90,10 +98,21 @@ public class Room {
     public String getTextureSouth() {
         return textureSouth;
     }
+
     public void setTextureSouth(String textureSouth) {
         this.textureSouth = textureSouth;
     }
-    
+
+    private Object getElementsByTagName(String textureBottom) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    double getDeph() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }
+    
+    
+

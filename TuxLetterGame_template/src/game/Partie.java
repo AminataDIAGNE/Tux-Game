@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package game;
 
+package game;
 /**
  *
- * @author DELL
+ * @author diagneam
  */
 public class Partie {
+    private String date;
+    private String mot;
+    private int niveau;
+    private int trouvé; 
+    private double temps = 0;
     
+    public Partie() {
+        this.date = "";
+        this.mot = "";
+        this.niveau = 1;
+    }
+   
 }
