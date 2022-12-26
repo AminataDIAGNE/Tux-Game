@@ -35,6 +35,7 @@ public class Letter extends EnvNode {
         setModel("models/letter/cube.obj");
     }
 
+    //renvoie l'attribut letter
     public char getLetter() {
         return letter;
     }

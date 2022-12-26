@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import env3d.Env;
 import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
 
 public abstract class Jeu {
 
@@ -20,13 +19,18 @@ public abstract class Jeu {
     protected Tux tux;
     protected ArrayList<Letter> lettres;
     protected Dico dico;
+    protected Chronometre chrono;
     //char c = 'o';
     //Letter lettre;
+    //EnvText textChrono;
+    
     //String mot="aminata";
-    //String mot;
+    String mot;
     //mot = get
+    
+    
 
-    public Jeu() throws SAXException, ParserConfigurationException, IOException {
+    public Jeu() throws IOException, ParserConfigurationException, Exception {
 
         // Crée un nouvel environnement
         env = new Env();
@@ -35,8 +39,9 @@ public abstract class Jeu {
         room = new Room();
 
         //accès et lecture du fichier dico.xml
-        dico = new Dico("src/Data/xml/dico.xml");
-        dico.lireDictionnaireDOM("src/game/", "dico.xml");
+        dico = new Dico("");
+        dico.lireDictionnaireDOM("src/xml/xml/dico.xml");
+        
 
         // Règle la camera
         env.setCameraXYZ(50, 60, 175);
@@ -56,11 +61,17 @@ public abstract class Jeu {
     }
 
     public void joue(Partie partie) {
+        
 
         // TEMPORAIRE : on règle la room de l'environnement. Ceci sera à enlever lorsque vous ajouterez les menus.
         env.setRoom(room);
         //String mot = dico.getMotDepuisListeNiveau(2);
-
+        mot = dico.getMotDepuisListeNiveau(5);
+        for(int i = 0; i < mot.length(); i++){
+            double x = (double) Math.random()*(room.getWidth());
+            double y = (double) Math.random()* room.getDepth();
+            lettres.add(new Letter(mot.charAt(i),x,y));
+        }  
         //lettres = new ArrayList<Letter>('o');
         /*for (int i = 0; i < mot.length(); i++) {
             // lettre.add(mot.charAt(i));
@@ -93,9 +104,11 @@ public abstract class Jeu {
             }
 
             // Contrôles des déplacements de Tux (gauche, droite, ...)
-            // ... (sera complété plus tard) ...
+            tux.déplace();  
+            
             // Ici, on applique les regles
             appliqueRegles(partie);
+            //textChrono.modify("Temps restant: " + (30 - chrono.getTime()) + "s");
 
             // Fait avancer le moteur de jeu (mise à jour de l'affichage, de l'écoute des événements clavier...)
             env.advanceOneFrame();
@@ -111,12 +124,7 @@ public abstract class Jeu {
         // pour l'instant, nous nous contentons d'appeler la méthode joue comme cela
         // et nous créons une partie vide, juste pour que cela fonctionne
         
-        String mot = dico.getMotDepuisListeNiveau(2);
-        for(int i = 0; i < mot.length(); i++){
-            double x = (double) Math.random()*(room.getWidth());
-            double y = (double) Math.random()* room.getDepth();
-            lettres.add(new Letter(mot.charAt(i),x,y));
-        }   
+         
         joue(new Partie());
         // Détruit l'environnement et provoque la sortie du programme 
         env.exit();
@@ -138,7 +146,54 @@ public abstract class Jeu {
     }
     
     
-    protected boolean collision(Letter letter){
+    
+    
+     //découpe le mot string en tableau de char
+    /**
+     * Decoupe le mot en lettres
+     *
+     * @param mot
+     * @return char[]
+     */
+    public char[] decouppeMot(String mot){
+        char motdecoupé[];
+        motdecoupé = new char[mot.length()];
+        
+        for (int i=0; i<mot.length(); i++){
+            motdecoupé[i] = mot.charAt(i);
+        }
+        
+        return motdecoupé;
+    }
+    //generer les coordonnees alétoirement
+    /**
+     * Genère un nombre aléatoire entre min et max
+     *
+     * @param min
+     * @param max
+     * @return double
+     */
+    public double randomDouble(double min, double max) {
+        double range = max - min + 1.0 ;
+        // generate random numbers 
+        double rand = (double)(Math.random() * range) + min;
+        
+        if ( (rand != tux.getX() || rand != tux.getY()) && rand != room.getDepth() && rand != room.getWidth()) {
+            return rand;
+        } else
+            rand = randomDouble(min, max);
+        return rand;
+    }
+    
+    
+    
+    /**
+     * Retourne vrai si tux est en contact avec la lettre passée en paramètre
+     *
+     * @param letter
+     * @return boolean
+     */
+     protected boolean collision(Letter letter){
         boolean res = false;
         if(distance(letter) < letter.getScale()+tux.getScale()){
             res = true;

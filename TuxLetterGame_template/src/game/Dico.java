@@ -1,23 +1,23 @@
-
 package game;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import test.Parsage_Dico;
+
+
 
 /**
  *
  * @author diagneam
  */
 public class Dico {
+    /**
+      definition des attributs de dico 
+     */
 
     private ArrayList<String> listeNiveau1;
     private ArrayList<String> listeNiveau2;
@@ -26,6 +26,10 @@ public class Dico {
     private ArrayList<String> listeNiveau5;
     private String cheminFichierDico;
 
+    /**
+     * Constructeur de partie qui prends en paramètre le chemin du fichier et qui se charge d'instancier les
+     * attributs de classe. 
+     */
     public Dico(String cheminFichier) {
         this.cheminFichierDico = cheminFichier;
         listeNiveau1 = new ArrayList<String>();
@@ -35,7 +39,10 @@ public class Dico {
         listeNiveau5 = new ArrayList<String>();
 
     }
-
+    /**
+     methodes qui se charge de parcourir la liste de mot suivant le niveau correspondant entré en paramètre 
+     * .Il verifira au préalable si le niveau existe bel et bien et renverra un mot aleatoire de cette liste
+     */
     public String getMotDepuisListeNiveau(int niveau) {
         switch (vérifieNiveau(niveau)) {
             case 1:
@@ -53,7 +60,10 @@ public class Dico {
         }
         return null;
     }
-
+/**
+     methodes qui un mot dans la liste de niveau correspondanate 
+     * .Il verifira au préalable si le niveau existe bel et bien
+     */
     public void ajouteMotADico(int niveau, String mot) {
         int level = vérifieNiveau(niveau);
         switch (level) {
@@ -75,11 +85,15 @@ public class Dico {
             default:
         }
     }
-
+    /**
+    renvoie l'attribut cheminFichierDico
+     */
     public String getCheminFichierDico() {
         return cheminFichierDico;
     }
-
+    /**
+    verifie si le niveau appartient à l'intervalle [1,5] sinon renvoie 1 par defaut
+     */
     private int vérifieNiveau(int niveau) {
         if ((niveau >= 1) && (niveau <= 5)) {
             return niveau;
@@ -88,6 +102,9 @@ public class Dico {
         }
     }
 
+    /**
+   Parcours une arraylist et renvoie une valeur aleatoire de cette liste ou "ListeVide" si la liste est vide
+     */
     public String getMotDepuisListe(ArrayList<String> list) {
         if (!list.isEmpty()) {
             // generation random numbers entre 0 et la taille de la list
@@ -101,42 +118,33 @@ public class Dico {
 
     }
 
+    /**
+    renvoie l'attribut listeNiveau
+     */
     public ArrayList<String> getList1() {
         return listeNiveau1;
     }
 
-    public void lireDictionnaireDOM(String path, String filename) throws SAXException, IOException, ParserConfigurationException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dbBuilder = dbFactory.newDocumentBuilder();
-        FileInputStream in = new FileInputStream(new File(path + "" + filename));
-        Document doc = dbBuilder.parse(in, "UTF-8");
+    /**
+    parser qui parcours le filename(Ici dico.xml) et rempli les arraylistNiveau des mots ayant l'attribut niveau correspondante
+     */
+    public void lireDictionnaireDOM(String filename) throws SAXException, IOException, ParserConfigurationException, Exception {
 
-        // récupère la liste des éléments Mots
-        NodeList listeMot = doc.getElementsByTagName("nsl:mot");
-        System.out.println("nombre de mot =   " + listeMot.getLength());
+        String s = filename;
+        List<Parsage_Dico.Mots> motsList = Parsage_Dico.loadMotDataFromXml(new File(s));
+        //ContactManager2.printPersonList(System.out, motsList);
+        for (int i = 0; i < motsList.size(); i++) {
+            if (motsList.get(i).getAttribute().equals("1")) {
+                ajouteMotADico(1, motsList.get(i).getName());
 
-        for (int i = 0; i < listeMot.getLength(); i++) {
-            Element mot = (Element) listeMot.item(i);
-            String mot_text = mot.getTextContent();
-            int mot_niveau = Integer.parseInt(mot.getAttribute("niveau"));
-            System.out.println(mot_text + "(" + mot_niveau + ")");
-
-            switch (mot_niveau) {
-                case 1:
-                    this.listeNiveau1.add(mot_text);
-                    break;
-                case 2:
-                    this.listeNiveau2.add(mot_text);
-                    break;
-                case 3:
-                    this.listeNiveau3.add(mot_text);
-                    break;
-                case 4:
-                    this.listeNiveau4.add(mot_text);
-                    break;
-                case 5:
-                    this.listeNiveau5.add(mot_text);
-                    break;
+            } else if (motsList.get(i).getAttribute().equals("2")) {
+                ajouteMotADico(2, motsList.get(i).getName());
+            } else if (motsList.get(i).getAttribute().equals("3")) {
+                ajouteMotADico(3, motsList.get(i).getName());
+            } else if (motsList.get(i).getAttribute().equals("4")) {
+                ajouteMotADico(4, motsList.get(i).getName());
+            } else if (motsList.get(i).getAttribute().equals("5")) {
+                ajouteMotADico(5, motsList.get(i).getName());
             }
         }
     }

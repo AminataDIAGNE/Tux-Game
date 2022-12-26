@@ -20,37 +20,37 @@
                                 <xsl:value-of select="/prof:profil/nom"/> 
                             </h1>
                         </td>                        
-                        <xsl:variable name="photo" select="//prof:avatar"/>
+                        <xsl:variable name="photo" select="//prof:avatar"/><!--definition d'une variable photo -->
                         <td> 
-                            <img  src = "$photo" width="100" height="100" />
+                            <img  src = "$photo" width="100" height="100" /><!--affichage de la variable photo -->
                         </td>    
                     </tr>
                     <tr>
                         <td>
-                            <h3> Née le : <xsl:value-of select="//prof:anniversaire"/> </h3>
+                            <h3> Née le : <xsl:value-of select="//prof:anniversaire"/> </h3><!--affichage des données de l'anniversaire -->
                         </td>
                     </tr>
                 </table>
                 <br/>
                 <br/>
-                <table style="width:100%" border="1">
+                <table style="width:100%" border="1"><!--création d'un tableau contenant les Parties,les dates ,le temps mis pour chaque partie et le mot à deviné-->
                     <tr>
                         <th>Partie</th>
                         <th>Date</th> 
                         <th>Temps</th>
                         <th>Mot</th>
                     </tr>
-                    <xsl:apply-templates select="//prof:partie"/>
+                    <xsl:apply-templates select="//prof:partie"/><!--application de la template -->
                 </table>
                 
             </body>   
         </html>
     </xsl:template>
 
-    <xsl:template match="prof:partie">        
+    <xsl:template match="prof:partie">  <!--template qui parcours le fichier xml et  renvoie l'information relatif pour chaque partie dans le tableau -->      
         <tr>
             <td> 
-                <xsl:value-of select="position()"/> 
+                <xsl:value-of select="position()"/> <!-- suivant le parcours du fichier (nombre d'atribut partie rencontré),on pourra deduire la partie correspondante -->
             </td>     
             <td> 
                 <xsl:value-of select="@date"/>
